@@ -1,6 +1,5 @@
 A list of domains which did not properly respond to a curl command, will be double checked and added to the hosts file as needed.
 
-
 # Host could not be resolved
 
 007angels.com
@@ -2805,3 +2804,22 @@ xwebcams.com
 xxgifs.com
 xxx.party-party.nl
 zorglist.com
+
+# Removed duplicated records (lines)
+sorted.txt
+
+# Invalid records from above:
+# mostly Misspelled
+See invalid.txt
+
+# INACTIVE, do to test in following order
+# WHOIS lookup, Is domain actively registret = no or whois lookup not posible
+# Do DNS response: if no = > do a http lookup. If all tree test fails it is considered inactive.
+See inactive.txt
+
+
+# ACTIVE
+
+# WHOIS lookup, Is domain actively registret = YES elif whois lookup not posible
+# Do DNS response: if yes elif do a http lookup. If one of the tree test succed it is considered ACTIVE.
+See active.txt
