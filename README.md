@@ -13,3 +13,24 @@ There are two ```hosts``` files in this repo, one which uses ```0.0.0.0``` and o
 Additionally, there is a new hosts file which will force Safe Search in Bing and Google, however it has not been tested yet. It can be found [here](https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/0.0.0.0%20%2B%20SafeSearch%20(beta)/hosts)
 
 Any helpful additions are appreciated
+
+## Why should I contribute
+You should contribute to this list because it does matter for those who have to block this kind of content.
+Let's have a look at Cloudflares <https://cloudflare-dns.com/family/> so called adult filter running on `1.1.1.3`
+
+![Cloudflare-dns adult filtering](https://www.mypdns.com/file/data/lethgvoookfqugdffqjk/PHID-FILE-fsnlpmklbe5rnalbjlip/preview-image.png)
+
+From the test file <https://github.com/Clefspeare13/pornhosts/blob/master/0.0.0.0/hosts> which we are going to use for our test we see the following result and why it matters you are contributing.
+
+## Test result
+
+```
+Status      Percentage   Numbers     
+----------- ------------ ------------
+ACTIVE      96%          8615        
+INACTIVE    3%           356         
+INVALID     0%           0           
+```
+
+## Conclusion
+We can hereby conclude this project have knowledge to 8615 domains, which nobody else CloudFlare-dns dosn't
