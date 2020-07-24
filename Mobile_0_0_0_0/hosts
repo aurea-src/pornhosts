@@ -864,7 +864,6 @@ fe80::1%lo0 localhost
 0.0.0.0 bdsmboard.org
 0.0.0.0 bdsmlibrary.com
 0.0.0.0 bdsmofficial.com
-0.0.0.0 bdsmpichunter.com
 0.0.0.0 bdsmstreak.com
 0.0.0.0 bdsmtheory.com
 0.0.0.0 bdsmxxxmovies.com
@@ -4012,7 +4011,6 @@ fe80::1%lo0 localhost
 0.0.0.0 m.bdsmboard.org
 0.0.0.0 m.bdsmcafe.com
 0.0.0.0 m.bdsmlibrary.com
-0.0.0.0 m.bdsmpichunter.com
 0.0.0.0 m.bdsmstreak.com
 0.0.0.0 m.bdsmtheory.com
 0.0.0.0 m.bdsmxxxmovies.com
