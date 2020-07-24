@@ -7,3 +7,4 @@ media.camsoda.com
 cachew.camsoda.com
 node2-ord.camsoda.com
 securedataimages.com
+privatefeeds.com
