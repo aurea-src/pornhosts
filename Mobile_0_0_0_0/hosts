@@ -444,7 +444,6 @@ fe80::1%lo0 localhost
 0.0.0.0 angel.ne.jp
 0.0.0.0 angel.se
 0.0.0.0 angel4christyb.com
-0.0.0.0 angel4host.com
 0.0.0.0 angela.ai.net
 0.0.0.0 angela.nl
 0.0.0.0 angela.nu
@@ -3684,7 +3683,6 @@ fe80::1%lo0 localhost
 0.0.0.0 m.angel.ne.jp
 0.0.0.0 m.angel.se
 0.0.0.0 m.angel4christyb.com
-0.0.0.0 m.angel4host.com
 0.0.0.0 m.angel4u.linkarena.com
 0.0.0.0 m.angela.nl
 0.0.0.0 m.angela.nu
