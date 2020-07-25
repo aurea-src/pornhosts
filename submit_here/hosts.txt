@@ -242,3 +242,6 @@ loverslab.com
 www.loverslab.com
 cdn.loverslab.com
 static.loverslab.com
+e-hentai.org
+forums.e-hentai.org
+upload.e-hentai.org
