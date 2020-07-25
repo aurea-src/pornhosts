@@ -238,3 +238,7 @@ cdna.luscious.net
 api.luscious.net
 upload.luscious.net
 w1024.luscious.net
+loverslab.com
+www.loverslab.com
+cdn.loverslab.com
+static.loverslab.com
