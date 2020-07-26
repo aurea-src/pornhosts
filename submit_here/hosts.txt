@@ -330,3 +330,11 @@ pt.porn.com
 ru.porn.com
 se.porn.com
 tr.porn.com
+nsimg.net
+cdn.nsimg.net
+m1.nsimg.net
+m2.nsimg.net
+m3.nsimg.net
+m4.nsimg.net
+m5.nsimg.net
+m6.nsimg.net
