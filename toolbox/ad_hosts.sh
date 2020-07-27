@@ -10,7 +10,7 @@
 # with the following command:
 # bash toolbox/ad_hosts.sh
 
-set -e -x
+set -e #-x
 
 cd "$(git rev-parse --show-toplevel)"
 
@@ -19,10 +19,6 @@ git_up () {
     git add -A . && git commit -am "Work in progress"
     git checkout "master"
     git pull
-}
-
-git_branch () {
-	git checkout -b "release/$domain"
 }
 
 # Collect information
@@ -61,7 +57,7 @@ read -rp "Enter spirillen Pornhost Issue ID: " pissue
 
 printf "\nAdding domain: %s\n" "$domain"
 
-git_up && git_branch
+git_up && git checkout -b "release/$domain"
 
 echo -e "${domain}\n\n" >> commit.txt
 echo "This commit will add the following domains" >> commit.txt
@@ -123,11 +119,12 @@ git commit -aF 'commit.txt' && rm -f 'commit.txt'
 
 printf "\n\nNow please verify your committed domains in submit_here/hosts.txt
 
-Before for pushes this with
+Before you pushes this with
 
 'git push -u origin release/%s'\n\n" "$domain"
 
-echo -e "You have Committed the following domains:\n"
+echo -e "You have Committed the following domains to:\n"
+echo -e "submit_here/hosts.txt\n"
 
 git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
   grep -e "^+" | cut -d "+" -f2 | grep -vE "^(#|$)"
