@@ -9125,3 +9125,7 @@ fe80::1%lo0 localhost
 127.0.0.1 cdn1.xixiporn.com	# Porn domain from Clefspeare13 list
 127.0.0.1 cdn2.xixiporn.com	# Porn domain from Clefspeare13 list
 127.0.0.1 cdn3.xixiporn.com	# Porn domain from Clefspeare13 list
+127.0.0.1 adult-tuber.com	# Porn domain from Clefspeare13 list
+127.0.0.1 cdn1.adult-tuber.com	# Porn domain from Clefspeare13 list
+127.0.0.1 cdn2.adult-tuber.com	# Porn domain from Clefspeare13 list
+127.0.0.1 cdn3.adult-tuber.com	# Porn domain from Clefspeare13 list
