@@ -7,29 +7,27 @@
 # file in the submit_here/ folder
 #
 # RUN THIS SCRIPT FROM THE REPO ROOT FOLDER
-# with this command
+# with the following command:
 # bash toolbox/ad_hosts.sh
 
-set -e #-x
+set -e -x
 
 cd "$(git rev-parse --show-toplevel)"
 
 # Some default functions
 git_up () {
     git add -A . && git commit -am "Work in progress"
-    #git pull --rebase
     git checkout "master"
     git pull
 }
 
 git_branch () {
 	git checkout -b "release/$domain"
-	#git branch --set-upstream-to=origin/release/"$domain" release/"$domain"
 }
 
 # Collect information
 
-echo -e "\nNew porno domain\n\n"
+echo -e "\nNew porno domain\n"
 echo -e "You can exit this script with 'ctrl+c'\n\n"
 
 read -rp "Enter 1 domain to handle as 'domain.tld': " domain
@@ -67,26 +65,32 @@ git_up && git_branch
 
 echo -e "${domain}\n\n" >> commit.txt
 echo "This commit will add the following domains" >> commit.txt
-
+while true
+do
 case $suffix in
   1)
 	echo "$domain" >> 'submit_here/hosts.txt'
 	echo "  - $domain" >> 'commit.txt'
+	break
 	;;
-
+  
   2)
 	echo "www.$domain" >> "submit_here/hosts.txt"
 	echo "  - www.$domain" >> 'commit.txt'
+	break
 	;;
 
   3)
 	echo -e "$domain\nwww.$domain" "" >> "submit_here/hosts.txt"
 	echo -e "  - $domain\n  - www.$domain" >> 'commit.txt'
+	break
 	;;
   *)
-	echo "Invalid input..."
+	echo "Invalid input..." 
+	exit 1
  ;;
 esac
+done
 
 # Append hosts file specific requirements
 if [ -n "${additional[0]}" ]
