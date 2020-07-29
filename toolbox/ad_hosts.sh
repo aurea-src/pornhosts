@@ -31,13 +31,25 @@ read -rp "Enter 1 domain to handle as 'domain.tld': " domain
 # Request for the needs of www. for primary domain or both
 printf "1. Use %s\n" "${domain}"
 printf "2. Use wwww.%s\n" "${domain}"
-printf "3. Use %s + www.%s\n" "${domain}" "${domain}"
+printf "3. Use %s + www.%s\n" "${domain}" "${domain}\n"
 
 read -erp "Which combination do we need [1/2/3]?: " suffix
 
+if [ -z "$suffix" ]
+then
+	printf "\n\tYou need to set an option\n\n"
+	read -erp "Which combination do we need [1/2/3]?: " suffix
+fi
+
+if [ -z "$suffix" ]
+then
+	printf "\n\tYou need to set an option\n\n"
+	exit 1
+fi
+
 # Ask for additional third level domains to be submitted
 
-printf "\nWould you like to add any additional domains?\n\nMax 1 domain per line\n\n"
+printf "\nWould you like to add any additional domains?\n\n(Max 1 domain per line)\n\n"
 
 additional=()
 while IFS= read -r -p "(End with an empty new line): " line; do
@@ -93,25 +105,25 @@ if [ -n "${additional[0]}" ]
 then
     printf "Appending additional hosts requirements:"
     printf '%s\n' "${additional[@]}" >> 'submit_here/hosts.txt'
-    echo -e "  - ${additional[@]}" >> 'commit.txt'
+    printf "  - ${additional[@]}" >> 'commit.txt'
 fi
 
 if [ -n "$issue" ]
 then
-	echo "Closes https://github.com/Clefspeare13/pornhosts/issues/${issue}" >> 'commit.txt'
+	echo -e "\nCloses https://github.com/Clefspeare13/pornhosts/issues/${issue}" >> 'commit.txt'
 fi
 
 if [ -n "$pissue" ]
 then
-	echo "Source: https://github.com/spirillen/pornhosts/issues/${pissue}" >> 'commit.txt'
+	echo -e "\nSource: https://github.com/spirillen/pornhosts/issues/${pissue}" >> 'commit.txt'
 fi
 
 if [ -n "$tissue" ]
 then
-	echo "Source: https://www.mypdns.org/T$tissue" >> 'commit.txt'
+	echo -e "\nSource: https://www.mypdns.org/T$tissue" >> 'commit.txt'
 fi
 
-echo "Ping: @Clefspeare13 @Spirillen" >> 'commit.txt'
+echo -e "\nPing: @Clefspeare13 @Spirillen" >> 'commit.txt'
 
 echo "Committing $domain"
 
