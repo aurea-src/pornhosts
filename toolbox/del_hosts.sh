@@ -15,14 +15,12 @@ set -e #-x
 # Some default functions
 git_up () {
     git add -A . && git commit -am "Work in progress"
-    git pull --rebase
     git checkout "master"
     git pull --rebase
 }
 
 git_branch () {
 	git checkout -b "removal/$domain"
-	git branch --set-upstream-to "origin/removal/$domain"
 }
 
 printf "\n\tThis Script is only to DELETE domains\n\n"
@@ -58,7 +56,16 @@ git push -u origin removal/%s
 
 Dont forget to return to master branch when you have pushed
 
-'git checkout master'\n\n" "$domain"
+echo -e "You have Committed the following domains to:\n"
+echo -e "submit_here/hosts.txt\n"
+
+git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
+  grep -e "^-" | cut -d "-" -f2 | grep -vE "^(#|$)"
+
+
+printf "\nIf you are happy and the changes looks right. Commit with 
+
+'git checkout master removal/%s'\n\n" "$domain"
 
 # Copyright: https://www.mypdns.org/
 # Content: https://www.mypdns.org/p/Spirillen/

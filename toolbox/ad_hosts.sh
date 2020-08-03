@@ -29,9 +29,9 @@ echo -e "You can exit this script with 'ctrl+c'\n\n"
 read -rp "Enter 1 domain to handle as 'domain.tld': " domain
 
 # Request for the needs of www. for primary domain or both
-printf "1. Use %s\n" "${domain}"
-printf "2. Use wwww.%s\n" "${domain}"
-printf "3. Use %s + www.%s\n" "${domain}" "${domain}\n"
+printf "1. Use only %s\n" "${domain}"
+printf "2. Use only wwww.%s\n" "${domain}"
+printf "3. Use both %s + www.%s\n" "${domain}" "${domain}\n"
 
 read -erp "Which combination do we need [1/2/3]?: " suffix
 
