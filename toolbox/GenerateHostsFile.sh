@@ -21,20 +21,23 @@ git_dir="$(git rev-parse --show-toplevel)"
 now=$(date '+%F %T %z (%Z)')
 my_git_tag="build: $(date '+%j')" # When travis comes to play use `${TRAVIS_BUILD_NUMBER}`
 
+
+# **********************************************************************
+# Set some dirs
+# **********************************************************************
+
+sourcedir="${git_dir}/test_results"
+outdir="${git_dir}/download_here" # no trailing / as it would make a double //
+
 # *******************************************
 # Set the sources (file names in submit_here)
 # *******************************************
 
-porn="hosts.active.txt"
-mobile="mobile.active.txt"
-snuff="snuff.active.txt"
-strict_list="strict_adult.active.txt"
+porn="$sourcedir/hosts.active.txt"
+mobile="sourcedir/mobile.active.txt"
+snuff="sourcedir/snuff.active.txt"
+strict_list="sourcedir/strict_adult.active.txt"
 
-# **********************************************************************
-# Set the output dirs
-# **********************************************************************
-
-outdir="${git_dir}/download_here" # no trailing / as it would make a double //
 
 # **********************************************************************
 # Ordinary without safe search records
