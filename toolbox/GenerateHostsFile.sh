@@ -4,7 +4,7 @@
 set -e
 
 # Run script in verbose
-# set -x
+ set -x
 
 printf "\n\tRunning %s\n\n" "${0}"
 
@@ -19,7 +19,7 @@ git_dir="$(git rev-parse --show-toplevel)"
 # ******************
 
 now=$(date '+%F %T %z (%Z)')
-my_git_tag="build: $(date '+%j')" # When travis comes to play use `${TRAVIS_BUILD_NUMBER}`
+my_git_tag="Build: $(date '+%j')" # When travis comes to play use `${TRAVIS_BUILD_NUMBER}`
 
 
 # **********************************************************************
@@ -82,12 +82,12 @@ mkdir -p \
   "${ssoutdir}/mobile" \
   "${ssoutdir}/strict/0.0.0.0/" \
   "${ssoutdir}/strict/127.0.0.1/"
-  
+
 
 # First let us clean up old data in output folders
 
-find "${outdir}" -type f -delete
-find "${ssoutdir}" -type f -delete
+find "${outdir}" -type f -iname 'hosts' -delete
+find "${ssoutdir}" -type f -iname 'hosts' -delete
 
 #bad_referrers=$(wc -l < "${rawlist}")
 
@@ -111,7 +111,7 @@ mobileTempl=${templpath}/mobile.template
 # Safe Search is in sub-path
 # **********************************************************************
 
-# TODO Get templates from the master source at 
+# TODO Get templates from the master source at
 # https://gitlab.com/my-privacy-dns/matrix/matrix/tree/master/safesearch
 # Template file for 0.0.0.0 and 127.0.0.1 are the same
 
@@ -127,23 +127,32 @@ printf "\n\tUpdate our safe search templates\n"
 wget -qO "${sshostsTempl}" \
   'https://raw.githubusercontent.com/mypdns/matrix/master/safesearch/safesearch.hosts'
 
+touch "${hosts}" "${hosts127}" "${strict}" "${strict127}" "${sshosts}" \
+  "${sshosts127}" "${ssstrict}" "${ssstrict127}" "${mobile}" "${ssmobile}"
 
 # ***********************************
 # Print the header in all hosts files
 # ***********************************
 
-printf "# Last Updated: ${now} Build: ${my_git_tag}\n#" | tee -ai \
-  "${hosts}" "${hosts127}" "${mobile}" "${strict}" "${strict127}" "${sshosts}" \
-    "${sshosts127}" "${ssmobile}" "${ssstrict}" "${ssstrict127}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${hosts}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${hosts127}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${mobile}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${strict}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${strict127}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${sshosts}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${sshosts127}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${ssmobile}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${ssstrict}"
+printf "# Last Updated: ${now} ${my_git_tag}\n#" >> "${ssstrict127}"
 
 
 # *************************************
 # Import templates into the hosts files
 # *************************************
 
-cat "${hostsTempl}" | tee -ai > "${hosts}" "${hosts127}" "${strict}" "${strict127}" "${sshosts}" "${sshosts127}" "${ssstrict}" "${ssstrict127}"
+cat "${hostsTempl}" | tee -ai >> "${hosts}" "${hosts127}" "${strict}" "${strict127}" "${sshosts}" "${sshosts127}" "${ssstrict}" "${ssstrict127}"
 
-cat "${mobileTempl}" | tee -ai > "${mobile}" "${ssmobile}"
+cat "${mobileTempl}" | tee -ai >> "${mobile}" "${ssmobile}"
 
 # **********************************************************************
 printf '\nAppending the MOBILE to the mobile lists only\n'
@@ -172,7 +181,7 @@ printf "\n# Porn domains\n" >> "${ssstrict}"
 printf "\n# Porn domains\n" >> "${ssstrict127}"
 printf "\n# Porn domains\n" >> "${mobile}"
 printf "\n# Porn domains\n" >> "${ssmobile}"
-  
+
 # Standard 0.0.0.0
 awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${hosts}"
 awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${mobile}"
@@ -226,7 +235,7 @@ awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${snuff_active}" >> "${ssstrict1
 printf "\nGenerate Grey Area\n"
 # **********************************************************************
 printf "\n# strict domains\n" >> "${strict}"
-printf "\n# strict domains\n" >> "${strict127}" 
+printf "\n# strict domains\n" >> "${strict127}"
 printf "\n# strict domains\n" >> "${ssstrict}"
 printf "\n# strict domains\n" >> "${sshosts127}"
 
@@ -255,6 +264,10 @@ cat "$sshostsTempl" | tee -a >> "${sshosts}" "${sshosts127}" \
 # compatibility
 # *************************************************************
 
+rm "${git_dir}/0.0.0.0/hosts" "${git_dir}/127.0.0.1/hosts"
+
+cp "${hosts}" "${git_dir}/0.0.0.0/hosts"
+cp "${hosts127}" "${git_dir}/127.0.0.1/hosts"
 
 exit ${?}
 
