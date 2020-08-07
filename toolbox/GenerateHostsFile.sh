@@ -6,7 +6,7 @@ set -e
 # Run script in verbose
 # set -x
 
-printf "\n\tRunning GenerateHostFile.sh\n\n"
+printf "\n\tRunning %s\n\n" "${0}"
 
 # *********************************************************************
 # Define root dir for git, for working with relative dir to this repo #
@@ -30,17 +30,17 @@ sourcedir="${git_dir}/test_results"
 outdir="${git_dir}/download_here" # no trailing / as it would make a double //
 
 # *******************************************
-# Set the sources (file names in submit_here)
+# Set the INPUT (file names in submit_here)
 # *******************************************
 
-porn="$sourcedir/hosts.active.txt"
-mobile="sourcedir/mobile.active.txt"
-snuff="sourcedir/snuff.active.txt"
-strict_list="sourcedir/strict_adult.active.txt"
+porn_active="${sourcedir}/hosts.active.txt"
+mobile_active="${sourcedir}/mobile.active.txt"
+snuff_active="${sourcedir}/snuff.active.txt"
+strict_active="${sourcedir}/strict_adult.active.txt"
 
 
 # **********************************************************************
-# Ordinary without safe search records
+# Ordinary OUTPUT without safe search records
 # **********************************************************************
 hosts="${outdir}/0.0.0.0/hosts"
 hosts127="${outdir}/127.0.0.1/hosts"
@@ -49,7 +49,7 @@ strict="${outdir}/strict/0.0.0.0/hosts"
 strict127="${outdir}/strict/127.0.0.1/hosts"
 
 # **********************************************************************
-# Safe Search enabled output
+# Safe Search enabled OUTPUT
 # **********************************************************************
 ssoutdir="${outdir}/safesearch" # no trailing / as it would make a double //
 
@@ -75,16 +75,19 @@ mkdir -p \
   "${outdir}/0.0.0.0" \
   "${outdir}/127.0.0.1" \
   "${outdir}/mobile" \
-  "${outdir}/strict/" \
+  "${outdir}/strict/0.0.0.0/" \
+  "${outdir}/strict/127.0.0.1/" \
   "${ssoutdir}/0.0.0.0" \
   "${ssoutdir}/127.0.0.1" \
   "${ssoutdir}/mobile" \
-  "${ssoutdir}/strict/"
+  "${ssoutdir}/strict/0.0.0.0/" \
+  "${ssoutdir}/strict/127.0.0.1/"
   
 
 # First let us clean up old data in output folders
 
 find "${outdir}" -type f -delete
+find "${ssoutdir}" -type f -delete
 
 #bad_referrers=$(wc -l < "${rawlist}")
 
@@ -121,90 +124,131 @@ printf "\n\tUpdate our safe search templates\n"
 # **********************************************************************
 # Append this to the bottom of the Safesearch generated files
 
-wget -qO "${sshostsTempl}" 'https://raw.githubusercontent.com/mypdns/matrix/master/safesearch/safesearch.hosts'
-
-
+wget -qO "${sshostsTempl}" \
+  'https://raw.githubusercontent.com/mypdns/matrix/master/safesearch/safesearch.hosts'
 
 
 # ***********************************
 # Print the header in all hosts files
 # ***********************************
 
-
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n#" | tee -ai \
-  "${hosts}" "${hosts127}" "${mobile}" "${strict}" "${sshosts}" \
-    "${sshosts127}" "${ssmobile}" "${ssstrict}"
+  "${hosts}" "${hosts127}" "${mobile}" "${strict}" "${strict127}" "${sshosts}" \
+    "${sshosts127}" "${ssmobile}" "${ssstrict}" "${ssstrict127}"
 
 
 # *************************************
 # Import templates into the hosts files
 # *************************************
 
-cat "${hostsTempl}" | tee -ai "${hosts}" "${hosts127}" "${mobile}" \
-  "${strict}" "${sshosts}" "${sshosts127}" "${ssmobile}" "${ssstrict}"
+cat "${hostsTempl}" | tee -ai > "${hosts}" "${hosts127}" "${strict}" "${strict127}" "${sshosts}" "${sshosts127}" "${ssstrict}" "${ssstrict127}"
+
+cat "${mobileTempl}" | tee -ai > "${mobile}" "${ssmobile}"
+
+# **********************************************************************
+printf '\nAppending the MOBILE to the mobile lists only\n'
+#
+# We should keep these in the top of the hosts file, to minimize the I/O
+# For traversing through the file over and over and over....
+# See https://www.mypdns.org/w/dnshosts/ For more info.
+# **********************************************************************
+printf "\n# Mobile domains\n" >> "${mobile}"
+printf "\n# Mobile domains\n" >> "${ssmobile}"
+
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${mobile_active}" >> "${mobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${mobile_active}" >> "${ssmobile}"
+
+# **********************************************************************
+printf "\nGenerating PORN hosts\n"
+# **********************************************************************
+
+printf "\n# Porn domains\n" >> "${hosts}"
+printf "\n# Porn domains\n" >> "${hosts127}"
+printf "\n# Porn domains\n" >> "${strict}"
+printf "\n# Porn domains\n" >> "${strict127}"
+printf "\n# Porn domains\n" >> "${sshosts}"
+printf "\n# Porn domains\n" >> "${sshosts127}"
+printf "\n# Porn domains\n" >> "${ssstrict}"
+printf "\n# Porn domains\n" >> "${ssstrict127}"
+printf "\n# Porn domains\n" >> "${mobile}"
+printf "\n# Porn domains\n" >> "${ssmobile}"
+  
+# Standard 0.0.0.0
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${hosts}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${mobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${strict}"
+
+# SafeSearch
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${sshosts}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${ssmobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${porn_active}" >> "${ssstrict}"
+
+# Windows 127.0.0.1
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${porn_active}" >> "${hosts127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${porn_active}" >> "${strict127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${porn_active}" >> "${sshosts127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${porn_active}" >> "${ssstrict127}"
 
 
 # **********************************************************************
-printf "\nGenerating hosts\n"
+printf "\nAdding SNUFF to hosts\n"
 # **********************************************************************
 
-while read DOMAINS
+printf "\n# snuff domains\n" >> "${hosts}"
+printf "\n# snuff domains\n" >> "${hosts127}"
+printf "\n# snuff domains\n" >> "${strict}"
+printf "\n# snuff domains\n" >> "${strict127}"
+printf "\n# snuff domains\n" >> "${sshosts}"
+printf "\n# snuff domains\n" >> "${sshosts127}"
+printf "\n# snuff domains\n" >> "${ssstrict}"
+printf "\n# snuff domains\n" >> "${ssstrict127}"
+printf "\n# snuff domains\n" >> "${mobile}"
+printf "\n# snuff domains\n" >> "${ssmobile}"
 
-	printf ("0.0.0.0 %s",tolower($1)) "${DOMAINS}" | tee -ai "${hosts}" \
-	  "${mobile}" "${strict}" "${sshosts}" "${ssmobile}" "${ssstrict}"
+# Standard 0.0.0.0
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${snuff_active}" >> "${hosts}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${snuff_active}" >> "${mobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${snuff_active}" >> "${strict}"
 
-	printf ("127.0.0.1 %s",tolower($1)) "${DOMAINS}" | tee -ai "${hosts127}" \
-	  "${sshosts127}"
+# SafeSearch
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${snuff_active}" >> "${sshosts}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${snuff_active}" >> "${ssmobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${snuff_active}" >> "${ssstrict}"
 
-done < "${porn}"
+# Windows 127.0.0.1
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${snuff_active}" >> "${hosts127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${snuff_active}" >> "${strict127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${snuff_active}" >> "${sshosts127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${snuff_active}" >> "${ssstrict127}"
 
-
-# **********************************************************************
-printf "\nAdding snuff to hosts\n"
-# **********************************************************************
-
-while read SNUFF
-
-	printf ("0.0.0.0 %s",tolower($1)) "${SNUFF}" | tee -ai "${hosts}" \
-	  "${mobile}" "${strict}" "${sshosts}" "${ssmobile}" "${ssstrict}"
-
-	printf ("127.0.0.1 %s",tolower($1)) "${SNUFF}" | tee -ai "${hosts127}" \
-	  "${sshosts127}"
-
-done < "${snuff}"
-
-# **********************************************************************
-printf "\nAppending the mobile to the mobile lists only\n"
-# **********************************************************************
-
-while read MOB
-
-	printf ("0.0.0.0 %s",tolower($1)) "${MOB}" | tee -ai "${mobile}" \
-	  "${ssmobile}"
-
-done < "${mobile}"
 
 # **********************************************************************
-printf "\nGenerate strict\n"
+printf "\nGenerate Grey Area\n"
 # **********************************************************************
+printf "\n# strict domains\n" >> "${strict}"
+printf "\n# strict domains\n" >> "${strict127}" 
+printf "\n# strict domains\n" >> "${ssstrict}"
+printf "\n# strict domains\n" >> "${sshosts127}"
 
-while read WEIRD
 
-	printf ("0.0.0.0 %s",tolower($1)) "${WEIRD}" | tee -ai "${strict}" \
-	  "${ssstrict}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${strict_active}" >> "${strict}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${strict_active}" >> "${ssstrict}"
 
-	printf ("127.0.0.1 %s",tolower($1)) "${WEIRD}" | tee -ai "${strict127}" \
-	  "${ssstrict127}"
-
-done < "${strict_list}"
-
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${strict_active}" >> "${strict127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${strict_active}" >> "${sshosts127}"
 
 # *******************************************
 printf "\nAppending the SafeSeach template\n"
 # *******************************************
 
-cat "$sshostsTempl" | tee -ai "${sshosts}" "${sshosts127}" "${ssmobile}" \
-  "${ssstrict}"
+printf "\n\n" >> "${sshosts}"
+printf "\n\n" >> "${sshosts127}"
+printf "\n\n" >> "${ssmobile}"
+printf "\n\n" >> "${ssstrict}"
+printf "\n\n" >> "${ssstrict127}"
+
+cat "$sshostsTempl" | tee -a >> "${sshosts}" "${sshosts127}" \
+  "${ssmobile}" "${ssstrict}" "${ssstrict127}"
 
 # *************************************************************
 # Copy newly generated hosts file to old locations for backward
