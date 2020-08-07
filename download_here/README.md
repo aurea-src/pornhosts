@@ -3,8 +3,9 @@
 In this folder you will find the following hosts files, which is different
 combinations of the source files from the `test_results/*.active.txt` folder.
 
-These records have been tested from the `submit_here/*.txt` with PyFunceble
-To minimize the numbers of FP's [False Positives](https://www.mypdns.org/w/falsepositive/)
+These records have been tested from the `submit_here/*.txt` with 
+[PyFunceble](https://github.com/funilrys/PyFunceble)
+To minimize the numbers of FP's ([False Positives](https://www.mypdns.org/w/falsepositive/))
 
 ```
 download_here/
@@ -34,7 +35,7 @@ download_here/
 ```
 
 | Location | Combination | IP-address |
-| : ---- : | : ------- : | : ------ : |
+| :------: | :---------: | :--------: |
 | 0.0.0.0/hosts | `hosts.txt` | 0.0.0.0 |
 | 127.0.0.1/hosts | `hosts.txt` | 127.0.0.1 |
 | mobile/hosts | `mobile.txt`+ `hosts.txt` | 0.0.0.0 |
