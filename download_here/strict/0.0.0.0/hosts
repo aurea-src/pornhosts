@@ -8643,3 +8643,7 @@ fe80::1%lo0 localhost
 0.0.0.0 kaotic.com
 0.0.0.0 miscopy.com
 0.0.0.0 www.miscopy.com
+
+# strict domains
+0.0.0.0 fastpic.ru
+0.0.0.0 rapidgator.net
