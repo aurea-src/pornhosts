@@ -38,11 +38,12 @@ sed -i "/${domain}\$/d" "submit_here/hosts.txt" "submit_here/mobile.txt" \
 
 printf "\nGit commit %s\nwith Pornhost issue ID: $issue\n" "$domain"
 
-printf "Removal of %s\n" "${domain}\n\n" >> commit.txt # Use two blank lines to ensure header
+printf "Removal of %s\n\n" "${domain}" >> commit.txt # Use two blank lines to ensure header
+
 printf "Closes https://github.com/Clefspeare13/pornhosts/pull/%s\n" ${issue}  >> commit.txt
 printf "\n\nPing: @Clefspeare13 @Spirillen\n" >> commit.txt
 
-whois -H "${domain} | tee -a commit.txt >/dev/null
+whois -H "${domain}" | tee -a commit.txt >/dev/null
 
 git commit -aF commit.txt && rm -f commit.txt
 
