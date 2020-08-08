@@ -7438,3 +7438,7 @@ fe80::1%lo0 localhost
 127.0.0.1 kaotic.com
 127.0.0.1 leakreality.com
 127.0.0.1 www.miscopy.com
+
+# strict domains
+127.0.0.1 fastpic.ru
+127.0.0.1 rapidgator.net

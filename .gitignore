@@ -1,2 +1,4 @@
-ad_hosts.sh
-del_hosts.sh
+test_results/output/**
+**.tmp
+miniconda.sh
+commit.txt

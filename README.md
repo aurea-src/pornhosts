@@ -37,7 +37,6 @@ inside the `submit_here` folder
 With the best wishes of a happy surfing
 [@Clefspeare13](https://github.com/Clefspeare13)
 
-
 ## Why should I contribute
 You should contribute to this list because it does matter for those who
 have to block this kind of content.
@@ -65,3 +64,4 @@ INVALID     0%           0
 ## Conclusion
 We can hereby conclude this project have knowledge to 8615 domains, which
 CloudFlare-dns do not know about
+
