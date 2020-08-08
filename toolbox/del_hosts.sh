@@ -62,6 +62,7 @@ echo -e "submit_here/hosts.txt\n"
 git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
   grep -e "^-" | cut -d "-" -f2 | grep -vE "^(#|$)"
 
+git commit 'submit_here/'
 
 printf "\nIf you are happy and the changes looks right. Commit with 
 
