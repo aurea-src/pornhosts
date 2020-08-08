@@ -9121,7 +9121,6 @@ www.4chan.com
 ssl-ccstatic.highwebmedia.com
 roomimg.stream.highwebmedia.com
 www.bitporno.com
-
 www1.bitporno.com
 www2.bitporno.com
 www3.bitporno.com
@@ -9141,6 +9140,5 @@ japanesefuckers.com
 cdn.japanesefuckers.com
 jav.land
 www.jav.land
-www.javbuz.com
-
+www1.javbuz.com
 statics.javbuz.com
