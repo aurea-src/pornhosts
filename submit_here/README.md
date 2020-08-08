@@ -15,6 +15,7 @@ submit_here/
 
 
 | File | Contents / Category |
+| :---: | :----------------: |
 | `hosts.txt` | Domain who solely serves Porno |
 | `mobile.txt` | Same as `hosts.txt` but only mobile specific domains like `m.example.net` |
 | `README.md` | This File |
