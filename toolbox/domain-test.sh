@@ -99,7 +99,7 @@ export PYFUNCEBLE_OUTPUT_LOCATION="${outputDir}/"
 
 export PYFUNCEBLE_CONFIG_DIR="${HOME}/.config/PyFunceble/"
 
-read -erp "Enter any custom test string: " -i "-dbr 30 -ex -m -p $(nproc --ignore=2) -h --http --idna -a --plain --hierarchical -db --database-type mariadb --dns 192.168.1.105:53 192.168.1.53:5302" -a pyfuncebleArgs
+read -erp "Enter any custom test string: " -i "-dbr 0 -ex -m -p $(nproc --ignore=2) -h --http --idna -a --plain --hierarchical -db --database-type mariadb --dns 192.168.1.105:53 192.168.1.53:5302" -a pyfuncebleArgs
 
 # Run PyFunceble
 # Switched to use array to keep quotes for SC2086
