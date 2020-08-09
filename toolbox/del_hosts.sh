@@ -47,11 +47,11 @@ whois -H "${domain}" | tee -a commit.txt >/dev/null
 
 git commit -aF commit.txt && rm -f commit.txt
 
-printf "\n\n\nNow please verify your committed domains in 
+printf "\n\n\nNow please verify your committed domains in
 
 submit_here/hosts.txt
 
-Before you pushes this with 
+Before you pushes this with
 
 git push -u origin removal/%s
 
@@ -65,7 +65,7 @@ git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
 
 git commit 'submit_here/'
 
-printf "\nIf you are happy and the changes looks right. Commit with 
+printf "\nIf you are happy and the changes looks right. Commit with
 
 'git checkout master removal/%s'\n\n" "$domain"
 
