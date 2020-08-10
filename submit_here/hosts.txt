@@ -1114,6 +1114,16 @@ c2.outster.com
 c2.xxxcounter.com
 c3.outster.com
 c3.xxxcounter.com
+cache10.pbwstatic.com
+cache1.pbwstatic.com
+cache2.pbwstatic.com
+cache3.pbwstatic.com
+cache4.pbwstatic.com
+cache5.pbwstatic.com
+cache6.pbwstatic.com
+cache7.pbwstatic.com
+cache8.pbwstatic.com
+cache9.pbwstatic.com
 cache.daredorm.com
 cache.gfrevenge.com
 cache.realitykings.com
@@ -3203,6 +3213,7 @@ payserve.com
 paysitepornlist.com
 p.badoo.com
 pbjjqx.angelfire.com
+pbwstatic.com
 pc20161117.com
 pcash.imlive.com
 pcash.wildmatch.com
