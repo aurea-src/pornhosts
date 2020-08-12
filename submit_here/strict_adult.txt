@@ -10,3 +10,4 @@ boards.4chan.org
 s.4cdn.org
 is2.4chan.org
 4chan.org  
+barebookclub.com
