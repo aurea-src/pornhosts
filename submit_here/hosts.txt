@@ -2519,6 +2519,7 @@ help.pornhub.com
 hennojin.com
 hentai0.com
 hentai2read.com
+hentai-anime-xxx.com
 hentaibeast.com
 hentai-cosplays.com
 hentaidude.com
@@ -3880,6 +3881,7 @@ static-bp2.cdnbm.net
 static-bp3.cdnbm.net
 static-bp.cdnbm.net
 static.f95zone.to
+static.hentai-anime-xxx.com
 static.hentai-cosplays.com
 static.hentai-gif-anime.com
 static.hentai-img.com
