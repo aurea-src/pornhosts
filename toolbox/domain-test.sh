@@ -105,23 +105,27 @@ read -erp "Enter any custom test string: " -i "-dbr 0 -ex -m -p $(nproc --ignore
 # Switched to use array to keep quotes for SC2086
 pyfunceble --version
 
-pyfunceble "${pyfuncebleArgs[@]}" -f "$snuff_source" && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" \
-  | tee > "$snuff_active" && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" \
-  | tee > "$snuff_dead" && delOutPutDir
+pyfunceble "${pyfuncebleArgs[@]}" -f "$snuff_source" && \
+  grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$snuff_active" \
+  && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$snuff_dead" \
+  && delOutPutDir
 
 
-pyfunceble "${pyfuncebleArgs[@]}" -f "$mobile_source" && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" \
-  | tee > "$mobile_active" && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" \
-  | tee > "$mobile_dead" && delOutPutDir
+pyfunceble "${pyfuncebleArgs[@]}" -f "$mobile_source" && \
+  grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$mobile_active" \
+  && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$mobile_dead" \
+  && delOutPutDir
 
-pyfunceble "${pyfuncebleArgs[@]}" -f "$strict_source" && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" \
-  | tee > "$strict_active" && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" \
-  | tee > "$strict_dead" && delOutPutDir
+pyfunceble "${pyfuncebleArgs[@]}" -f "$strict_source" && \
+  grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$strict_active" \
+  && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$strict_dead" \
+  && delOutPutDir
 
 
-pyfunceble "${pyfuncebleArgs[@]}" -f  "$porn_source" && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" \
-  | tee > "$porn_active" && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" \
-  | tee > "$porn_dead" && delOutPutDir
+pyfunceble "${pyfuncebleArgs[@]}" -f  "$porn_source" \
+  && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$porn_active" \
+  && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$porn_dead" \
+  && delOutPutDir
 
 
 
