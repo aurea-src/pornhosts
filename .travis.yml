@@ -59,5 +59,6 @@ script:
   - sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON *.* TO 'PyFunceble'@'localhost';"
   - if [ -f ${HOME}/db/pyfunceble.sql ]; then sudo mysql --user=PyFunceble --password=PyFunceble
     PyFunceble < ${HOME}/db/pyfunceble.sql; fi
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf '\n\ttoolbox/GenerateHostsFile.sh\n\n'; fi'
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
+  #- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash 'toolbox/GenerateHostsFile.sh'; fi
+    # This script ain't ready yet
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash './travis/run_on_pull_requests''; fi
