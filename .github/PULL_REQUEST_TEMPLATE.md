@@ -1,5 +1,4 @@
-I believe this domain is an Adult(-related) domain --> that have to 
-be blocked as..
+I believe this domain is an Adult(-related) domain --> that have to be blocked as..
 
 ```python
 example.net
@@ -9,9 +8,9 @@ www.example.net
 ## Comments
 
 ## Screenshots
+<!-- keep one clean above and below image link. Otherwise the collapseble feature breaks -->
 
 <details><Summary>Screenshot required</summary>
-
 
 
 </details>
