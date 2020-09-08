@@ -8,7 +8,7 @@ www.example.net
 ## Comments
 
 ## Screenshots
-<!-- keep one clean above and below image link. Otherwise the collapseble feature breaks -->
+<!-- keep one clean above and below image link. Otherwise the collapsible feature breaks -->
 
 <details><Summary>Screenshot required</summary>
 
