@@ -3755,6 +3755,7 @@ pics.pornmarathon.com
 pics.tube4.me
 pics.vc
 picsvintag.com
+pics.viptube.com
 picture1.18stream.com
 picture4.18stream.com
 picture5.18stream.com
@@ -4300,6 +4301,7 @@ static-site.metartnetwork.com
 statics.javbuz.com
 static.teamskeetdiscount.co
 static.thenude.com
+static.viptube.com
 static.wlresources.com
 statisch.folgenporno.com
 status.chaturbate.com
