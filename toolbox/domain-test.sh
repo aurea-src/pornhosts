@@ -80,9 +80,9 @@ conda activate pyfunceble-dev
 # Make sure output dir is there
 mkdir -p "${outputDir}"
 
-#pip install --upgrade pip -q
-#pip uninstall -yq pyfunceble-dev
-#pip install --no-cache-dir --upgrade -q pyfunceble-dev
+pip install --upgrade pip -q
+pip uninstall -yq pyfunceble-dev
+pip install --no-cache-dir --upgrade -q pyfunceble-dev
 
 
 # Tell the script to install/update the configuration file automatically.
@@ -99,7 +99,7 @@ export PYFUNCEBLE_OUTPUT_LOCATION="${outputDir}/"
 
 export PYFUNCEBLE_CONFIG_DIR="${HOME}/.config/PyFunceble/"
 
-read -erp "Enter any custom test string: " -i "-dbr 0 -ex -m -p $(nproc --ignore=2) -h --http --idna -a --plain --hierarchical -db --database-type mariadb --dns 192.168.1.105:53 192.168.1.53:5302" -a pyfuncebleArgs
+read -erp "Enter any custom test string: " -i "-dbr 0 -ex -m -p $(nproc --ignore=2) -h --http --idna -a --plain --hierarchical -db --database-type mariadb --dns 192.168.1.105:53 --complements" -a pyfuncebleArgs
 
 # Run PyFunceble
 # Switched to use array to keep quotes for SC2086
@@ -126,13 +126,6 @@ pyfunceble "${pyfuncebleArgs[@]}" -f  "$porn_source" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$porn_active" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$porn_dead" \
   && delOutPutDir
-
-
-
-
-
-
-
 
 exit ${?}
 
