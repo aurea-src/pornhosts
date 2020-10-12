@@ -2998,6 +2998,7 @@ im1.ibsearch.xxx
 im1.mediacnt.pro
 im2.mediacnt.pro
 image01.po88.cc
+image.javhub.net
 images01-fame.gammacdn.com
 images02-fame.gammacdn.com
 images03-fame.gammacdn.com
@@ -3126,6 +3127,7 @@ javhaven.com
 javhay.net
 javhdmovies.com
 javhd.pics
+javhub.net
 javladies.com
 jav.land
 javmodel.com
