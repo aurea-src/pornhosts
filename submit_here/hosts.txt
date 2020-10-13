@@ -654,6 +654,7 @@ apina.biz
 apinaporn.com
 api.pornhub.com
 api.porn.sex
+api.redgifs.com
 api-stage2.pornhub.com
 api-stage3.pornhub.com
 api-stage.pornhub.com
@@ -4822,9 +4823,11 @@ thisyearsmodel.com
 t.htvncdn.net
 thumb-lvlt.xhcdn.com
 thumbnail.hgamecg.com
+thumbs1.redgifs.com
 thumbs3.smartmovies.net
 thumbs.folgenporno.com
 thumbs.gaydemon.com
+thumbs.redgifs.com
 thumb-user.xhcdn.com
 thumbuster.com
 thumb-v1.xhcdn.com
