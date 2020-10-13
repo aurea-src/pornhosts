@@ -3000,6 +3000,7 @@ id.biguz.net
 ideal-babe.com
 ideal-teens.com
 idol.sankakucomplex.com
+iframes.awempire.com
 i.hentaifox.com
 il.bimbolive.com
 il.sex4k.cam
@@ -3079,6 +3080,7 @@ img6.hotnessrater.com
 img7.hotnessrater.com
 img8.hotnessrater.com
 img.avwend.com
+img.awempire.com
 img.dlsite.jp
 img-hw.xnxx-cdn.com
 img-hw.xvideos-cdn.com
@@ -4422,6 +4424,7 @@ ru.xhamster.one
 rwspanking.com
 rylskyhunter.com
 s0.amateurs-gone-wild.com
+s0.img.awempire.com
 s10.trafficdeposit.com
 s11.sluttydaddy.com
 s11.trafficdeposit.com
@@ -4436,8 +4439,10 @@ s18.trafficdeposit.com
 s19.trafficdeposit.com
 s1.amateurs-gone-wild.com
 s1.cdncontents.com
+s1.img.awempire.com
 s1.trafficdeposit.com
 s2.amateurs-gone-wild.com
+s2.img.awempire.com
 s2.trafficdeposit.com
 s3.amateurs-gone-wild.com
 s3.trafficdeposit.com
@@ -4611,6 +4616,8 @@ stat.adultium.com
 static01-cms-fame.gammacdn.com
 static02-cms-fame.gammacdn.com
 static03-cms-fame.gammacdn.com
+static0.awempire.com
+static1.awempire.com
 static1.dditscdn.com
 static2.dditscdn.com
 static2.hentai-cosplays.com
@@ -4618,6 +4625,7 @@ static3.dditscdn.com
 static4.dditscdn.com
 static5.porn-images-xxx.com
 static9.hentai-img.com
+static.awempire.com
 static-bp2.cdnbm.net
 static-bp3.cdnbm.net
 static-bp.cdnbm.net
