@@ -107,23 +107,27 @@ read -erp "Enter any custom test string: " -i "-dbr 0 -ex -m -p $(nproc --ignore
 # Switched to use array to keep quotes for SC2086
 pyfunceble --version
 
+printf "\nTesting: snuff\n"
+
 pyfunceble "${pyfuncebleArgs[@]}" -f "$snuff_source" && \
   grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$snuff_active" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$snuff_dead" \
   && delOutPutDir
 
+printf "\nTesting: mobile\n"
 
 pyfunceble "${pyfuncebleArgs[@]}" -f "$mobile_source" && \
   grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$mobile_active" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$mobile_dead" \
   && delOutPutDir
 
+printf "\nTesting: strict adult\n"
 pyfunceble "${pyfuncebleArgs[@]}" -f "$strict_source" && \
   grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$strict_active" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$strict_dead" \
   && delOutPutDir
 
-
+printf "\nTesting: hosts\n"
 pyfunceble "${pyfuncebleArgs[@]}" -f  "$porn_source" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/ACTIVE/list" > "$porn_active" \
   && grep -vE '^(#|$)' "${outputDir}/output/domains/INACTIVE/list" > "$porn_dead" \
