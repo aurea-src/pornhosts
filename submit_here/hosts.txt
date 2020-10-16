@@ -4724,6 +4724,7 @@ stat.i3.dmm.com
 static01-cms-fame.gammacdn.com
 static02-cms-fame.gammacdn.com
 static03-cms-fame.gammacdn.com
+static04-cms-fame.gammacdn.com
 static0.awempire.com
 static1.awempire.com
 static1.dditscdn.com
