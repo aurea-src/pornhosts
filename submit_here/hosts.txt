@@ -4268,6 +4268,7 @@ privatefeeds.com
 prog-public-ec.project1content.com
 project1content.com
 promo.homegrownvideo.com
+promoserver12.com
 promo.spunkyangels.com
 prontoservers.net
 psy.mtree.com
