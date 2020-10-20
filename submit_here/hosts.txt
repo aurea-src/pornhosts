@@ -3514,6 +3514,7 @@ media.camsoda.com
 mediacnt.com
 mediacnt.pro
 media.dlsite.com
+media.efukt.com
 media.hypnotube.com
 media.joybear.com
 media.lemmecheckvideo.com
@@ -4837,6 +4838,7 @@ static-bt2.cdnbm.net
 static-bt3.cdnbm.net
 static-bt.cdnbm.net
 static-cdn.femjoy.com
+static.efukt.com
 static.eroticbeauties.net
 static.f95zone.to
 static.getindiebill.com
