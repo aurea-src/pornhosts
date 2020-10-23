@@ -4,6 +4,7 @@
 a.4cdn.org
 barebookclub.com
 boards.4chan.org
+cdn.shopify.com
 erobodio.ru
 fastpic.ru
 galleries.onlytease.com
@@ -21,6 +22,7 @@ pixhost.to
 polonews.tw
 rapidgator.net
 s.4cdn.org
+shopify.com
 spb.erobodio.ru
 static.uniondht.org
 sys.4chan.org
