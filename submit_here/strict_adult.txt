@@ -4,10 +4,7 @@
 a.4cdn.org
 barebookclub.com
 boards.4chan.org
-cdn1.teensfilm.com
 cdn2teensfilm.com
-cdn3.teensfilm.com
-cdn4.teensfilm.com
 cdn.shopify.com
 erobodio.ru
 fastpic.ru
@@ -30,7 +27,6 @@ spb.erobodio.ru
 static.uniondht.org
 sys.4chan.org
 t44.pixhost.to
-teensfilm.com
 tour.only-costumes.com
 tour.only-opaques.com
 tour.only-secretaries.com
@@ -51,4 +47,3 @@ www.only-secretaries.com
 www.onlysilkandsatin.com
 www.only-sportswear.com
 www.onlytease.com
-www.teensfilm.com
