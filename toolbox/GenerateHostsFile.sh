@@ -269,6 +269,8 @@ rm "${git_dir}/0.0.0.0/hosts" "${git_dir}/127.0.0.1/hosts"
 cp "${hosts}" "${git_dir}/0.0.0.0/hosts"
 cp "${hosts127}" "${git_dir}/127.0.0.1/hosts"
 
+git commit -am "New dumb Hostfile. Updated: ${now} ${my_git_tag}"
+
 exit ${?}
 
 # Copyright: https://www.mypdns.org/
