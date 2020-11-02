@@ -2,6 +2,7 @@
 4chan.org
 4chan.org  
 55chan.org
+861608011.tapecontent.net
 a.4cdn.org
 barebookclub.com
 blog.4chan.org
@@ -31,6 +32,8 @@ static.uniondht.org
 streamtape.com
 sys.4chan.org
 t44.pixhost.to
+tapecontent.net
+thumb.tapecontent.net
 tour.only-costumes.com
 tour.only-opaques.com
 tour.only-secretaries.com
