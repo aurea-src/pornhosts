@@ -31,6 +31,7 @@ spb.erobodio.ru
 static.uniondht.org
 streamtape.cc
 streamtape.com
+streamtape.net
 sys.4chan.org
 t44.pixhost.to
 tapecontent.net
