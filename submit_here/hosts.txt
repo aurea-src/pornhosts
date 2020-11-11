@@ -3647,6 +3647,7 @@ img.dlsite.jp
 img-hw.others-cdn.com
 img-hw.xnxx-cdn.com
 img-hw.xvideos-cdn.com
+imgix.net
 img.javsin.tv
 img.jav.work
 img-l3.others-cdn.com
