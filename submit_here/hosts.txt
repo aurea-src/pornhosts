@@ -1467,7 +1467,6 @@ c37.cdn3x.com
 c3.outster.com
 c3.xxxcounter.com
 c5.ng-source.com
-c7cdn.com
 ca.biguz.net
 cache10.pbwstatic.com
 cache1.pbwstatic.com
@@ -3697,6 +3696,7 @@ i1.yourhentaipics.com
 i2.hentaifox.com
 i2px.com
 i2.yourhentaipics.com
+i4.pc20160301.com
 i6.wlmediahub.com
 i7a8a9b6.ssl.hwcdn.net
 iality.best
@@ -5023,6 +5023,7 @@ pbs-1.adult-empire.com
 pbs-2.adult-empire.com
 pbtv-ma.playboy.com
 pbwstatic.com
+pc20160301.com
 pc20161117.com
 pcash.imlive.com
 pcash.wildmatch.com
