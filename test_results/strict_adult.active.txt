@@ -6,7 +6,11 @@ images1-focus-opensocial.googleusercontent.com
 hotnessrater.com
 imagetwist.com
 img33.imagetwist.com
+img69.imagetwist.com
+img119.imagetwist.com
+img165.imagetwist.com
 img202.imagetwist.com
+img250.imagetwist.com
 img300.imagetwist.com
 www.imagetwist.com
 onlycarla.com
@@ -56,4 +60,5 @@ www.erobodio.ru
 fastpic.ru
 pixhost.to
 t44.pixhost.to
+upstream.to
 polonews.tw
